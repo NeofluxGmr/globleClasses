@@ -1,5 +1,6 @@
-      
-//   function for social media handle   
+const Enterypoint = document.getElementById("Enterypoint");
+
+
 
 function hreflink(no){
     if (no == 1){
@@ -15,3 +16,10 @@ function hreflink(no){
         console.log("Invalid Link")
     }
 }
+
+
+window.onload = function () {
+  setTimeout(function () {
+    Enterypoint.style.display = "none";
+    }, 2000); 
+  };
