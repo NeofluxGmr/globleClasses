@@ -1,0 +1,136 @@
+   body{
+              background-color: rgb(31, 31, 31);
+              align-items: center;
+              justify-content: center;  
+            }
+            .Nav-Bar{ 
+              display: flex;
+              position: absolute;
+              background-color: rgb(43, 44, 44);
+              left: 0;
+              right: 0;
+              top: 0;
+              height: 60px;
+              border-radius: 0px 0px 20px 20px;
+              box-shadow: 0px 1px 15px rgb(0, 0, 0);
+              align-items: center;
+            }
+            .Nav-Bar img{
+              margin-left: 10px;
+              width: 40px;
+              height: 40px;
+              border-radius: 50px;
+              outline: 1px solid rgb(255, 255, 255);
+            }
+            .Portfolio {
+              margin-top: 60px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              padding: 20px;
+              flex-direction: column;
+            }
+        .image-frame {
+              box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.61);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+        .image-frame img {
+              max-width: 100%;
+              max-height: 80%;
+            }
+        .Signname{
+              display: flex;
+              width: 100%;
+              height: 50px;
+              background-color: rgb(0, 0, 0);
+              margin-top: 20px;
+              text-align: center;
+              border-radius: 10px 10px 0px 0px;
+              justify-content: center;
+              align-items: center;
+            }
+        .Signname h1{
+              text-align: center;
+              font-family: "Oswald", sans-serif;
+              font-weight: 700;
+              color: #fff;
+        }
+        .Handles-Holder{
+              display: flex;
+              width: 100%;
+              height: 200px;
+              background-color: rgb(54, 54, 54);
+              border-radius: 0px 0px 10px 10px;
+              justify-content: center;
+              flex-direction: column;
+              align-items: center;
+              gap: 10px; 
+              user-select: none;
+
+        }
+        .Handles-Holder h3{
+            font-family: "Oswald", sans-serif;
+        }
+        .Handler{  
+              display: flex;
+              width: 95%;
+              height: 50px;
+              justify-content: center;
+              align-items: center;
+              background-color: rgb(255, 255, 255); 
+              border-radius: 5px;
+        }
+        .Handler img{
+              position: absolute;
+              left: 50;
+        }
+        .img1{
+              width: 40px;
+              height: 40px;
+        }
+        .img2{
+              width: 40px;
+              height: 40px;
+        }
+        .img3{
+             width: 40px;
+             height: 30px;  
+        }
+        .footer {
+             background-color: #111;
+             color: #fff;
+             text-align: center;
+             font-family: 'Segoe UI', sans-serif;
+             width: 100%;
+             border-radius: 10px; 
+        }
+
+        .footer-content {
+             max-width: 1200px;
+             margin: auto;
+             display: flex;
+             flex-direction: column;
+             gap: 10px;
+             align-items: center;
+             justify-content: center;
+        }
+        .Pc-off{
+            display: none;
+            padding: 20px;
+            background-color: #fff;
+            align-items: center;
+            justify-content: center; 
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+/* Responsive */
+        @media (min-width: 600px) {
+        .TemPC-off{
+            display: none;
+        }
+        .Pc-off{
+            display: flex;
+        }
+        }
