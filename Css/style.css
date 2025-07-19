@@ -1,190 +1,233 @@
-   body{
-              background-color: rgb(31, 31, 31);
-              align-items: center;
-              justify-content: center;  
-            }
-            .Nav-Bar{ 
-              display: flex;
-              position: absolute;
-              background-color: rgb(43, 44, 44);
-              left: 0;
-              right: 0;
-              top: 0;
-              height: 60px;
-              border-radius: 0px 0px 20px 20px;
-              box-shadow: 0px 1px 15px rgb(0, 0, 0);
-              align-items: center;
-            }
-            .Nav-Bar img{
-              margin-left: 10px;
-              width: 40px;
-              height: 40px;
-              border-radius: 50px;
-              outline: 1px solid rgb(255, 255, 255);
-            }
-            .Portfolio {
-              margin-top: 60px;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              padding: 20px;
-              flex-direction: column;
-            }
-        .image-frame {
-              box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.61);
-              display: flex;
-              justify-content: center;
-              align-items: center;
-            }
-        .image-frame img {
-              max-width: 100%;
-              max-height: 80%;
-            }
-        .Signname{
-              display: flex;
-              width: 100%;
-              height: 50px;
-              background-color: rgb(0, 0, 0);
-              margin-top: 20px;
-              text-align: center;
-              border-radius: 10px 10px 0px 0px;
-              justify-content: center;
-              align-items: center;
-            }
-        .Signname h1{
-              text-align: center;
-              font-family: "Oswald", sans-serif;
-              font-weight: 700;
-              color: #fff;
-        }
-        .Handles-Holder{
-              display: flex;
-              width: 100%;
-              height: 200px;
-              background-color: rgb(54, 54, 54);
-              border-radius: 0px 0px 10px 10px;
-              justify-content: center;
-              flex-direction: column;
-              align-items: center;
-              gap: 10px; 
-              user-select: none;
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Oswald', sans-serif;
+      background-color: #1f1f1f;
+      color: #ffffff;
+      scroll-behavior: smooth;
+    }
 
-        }
-        .Handles-Holder h3{
-            font-family: "Oswald", sans-serif;
-        }
-        .Handler{  
-              display: flex;
-              width: 95%;
-              height: 50px;
-              justify-content: center;
-              align-items: center;
-              background-color: rgb(255, 255, 255); 
-              border-radius: 5px;
-        }
-        .Handler img{
-              position: absolute;
-              left: 50;
-        }
-        .img1{
-              width: 40px;
-              height: 40px;
-        }
-        .img2{
-              width: 40px;
-              height: 40px;
-        }
-        .img3{
-             width: 40px;
-             height: 30px;  
-        }
-        .footer {
-             background-color: #111;
-             color: #fff;
-             text-align: center;
-             font-family: 'Segoe UI', sans-serif;
-             width: 100%;
-             border-radius: 10px; 
-        }
+    /* Loader */
+    .Enterypoint {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #000;
+      z-index: 100;
+      transition: opacity 0.5s ease;
+      text-align: center;
+    }
+    .Enterypoint img {
+      position: absolute;
+      width: 200px;
+      height: auto;
+      bottom: 1px;
+    }
+    .Enterypoint h2 {
+      font-size: 40px;
+      margin: 8px 0;
+      color: red;
+    }
+    .Enterypoint p {
+      font-size: 14px;
+      color: #bbb;
+      margin-top: 4px;
+    }
+    .spinner {
+      display: flex;
+      gap: 8px;
+      margin-top: 18px;
+    }
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #00ff37;
+      animation: bounce 0.6s infinite ease-in-out;
+    }
+    .dot:nth-child(2) { animation-delay: 0.1s; }
+    .dot:nth-child(3) { animation-delay: 0.2s; }
 
-        .footer-content {
-             max-width: 1200px;
-             margin: auto;
-             display: flex;
-             flex-direction: column;
-             gap: 10px;
-             align-items: center;
-             justify-content: center;
-        }
-        .Pc-off{
-            display: none;
-            padding: 20px;
-            background-color: #fff;
-            align-items: center;
-            justify-content: center; 
-            font-family: 'Segoe UI', sans-serif;
-        }
+    @keyframes bounce {
+      0%, 80%, 100% { transform: scale(0); opacity: 0.5; }
+      40% { transform: scale(1); opacity: 1; }
+    }
 
-/* Responsive */
-        @media (min-width: 600px) {
-        .TemPC-off{
-            display: none;
-        }
-        .Pc-off{
-            display: flex;
-        }
-        }
-        .Enterypoint{
-                display: flex;
-                position: fixed;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                z-index: 1;
-                width: 100%;
-                height: 100%;
-                background-color: black;
-                font-family: Arial, Helvetica, sans-serif;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-            }
-            .Enterypoint img{
-                margin-top: -200px;
-                width: 400;
-                height: 400;
+    /* Navbar */
+    .Nav-Bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      background-color: #2b2c2c;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      z-index: 40;
+      border-radius: 0px 0px 20px 20px;
+    }
+    .Nav-Bar img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid #ffffff;
+    }
+    .nav-links {
+      display: none;
+    }
+    .nav-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 18px;
+      margin-left: 16px;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover {
+      color: #91ef44;
+    }
+    .hamburger {
+      width: 30px;
+      height: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+    .hamburger-line {
+      width: 100%;
+      height: 3px;
+      background: #ffffff;
+      border-radius: 2px;
+    }
+    @media (min-width: 768px) {
+      .hamburger { display: none; }
+      .nav-links { display: flex; align-items: center; }
+    }
 
-            }
-    
-            .spinner {
-              display: flex;
-              gap: 8px;
-            }
+    main { padding-top: 80px; }
+    .container {
+      max-width: 1280px;
+      margin: auto;
+      padding: 0 16px;
+    }
 
-            .dot {
-              width: 12px;
-              height: 12px;
-              border-radius: 50%;
-              background-color: #e50914;
-              animation: bounce 0.6s infinite ease-in-out;
-            }
+    /* Slideshow */
+    .image-frame {
+      position: relative;
+      width: 100%;
+      height: 400px; /* increased height */
+      overflow: hidden;
+      border-radius: 12px;
+      
+      margin-bottom: 12px;
+    }
 
-            .dot:nth-child(2) {
-              animation-delay: 0.1s;
-            }
+    .slideshow-container {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+    }
 
-            .dot:nth-child(3) {
-              animation-delay: 0.2s;
-            }
+    .slideshow-container::-webkit-scrollbar {
+      display: none;
+    }
 
-            @keyframes bounce {
-              0%, 80%, 100% {
-                transform: scale(0);
-                opacity: 0.5;
-              }
-              40% {
-                transform: scale(1);
-                opacity: 1;
-              }
-            }
+    .slideshow-container img {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+      width: 100%;
+      height: 100%;
+      object-fit:contain;
+    }
+
+    .dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 16px;
+      margin-bottom: 32px;
+    }
+
+    .dot-btn {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #444;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .dot-btn.active {
+      background-color: #00aaf8;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      text-align: center;
+      margin-top: 24px;
+      margin-bottom: 40px;
+    }
+
+    @media (min-width: 768px) {
+      h1 { font-size: 36px; }
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      padding: 40px 16px;
+    }
+    .social-links a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 160px;
+      padding: 24px;
+      background-color: #ffffff;
+      color: #111827;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+      text-decoration: none;
+      transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    }
+    .social-links a:hover {
+      transform: scale(1.05);
+      background-color: #4aef44;
+      color: #ffffff;
+    }
+    .social-links img {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 8px;
+    }
+    .social-links h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    footer {
+      background-color: #0b0b0b;
+      padding: 32px 16px;
+      text-align: center;
+    }
+    footer p {
+      font-size: 14px;
+      margin: 0;
+    }
