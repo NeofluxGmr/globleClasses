@@ -1,64 +1,89 @@
-<html>
-    <head>
-        <title>Global Online Classes</title>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link rel="stylesheet" href="Css/style.css">
-        <link rel="stylesheet" href="Css/Hamburger.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Special+Gothic+Expanded+One&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-    </head>
-    <body>
-    <div class="Pc-off">
-       <H1>Sorry This Side Pc version Is in Working!</H1>
-    </div>    
-        <!-- pc css noavilable temp -->
-    <div class="TemPC-off">
-     
-    <div class="Enterypoint" id="Enterypoint">
-     <img src="Assets/Login.png">
-        <div class="spinner">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-        </div>
-    </div>    
-        <!-- Navbar -->
-    <div class="Nav-Bar">
-         <img src="Assets/Logo/Logo.jpg">
-        <!-- Nav Menu Hamburger -->
-        <div class="hamburger is-lg">
-            <div class="hamburger-line"></div>
-            <div class="hamburger-line"></div>
-            <div class="hamburger-line"></div>
-        </div>
-    </div>
-      
-       <!-- Protfolio section  -->
-    <div class="Portfolio">
-        <div class="image-frame">
-            <img src="Assets/Template.jpg" alt="Portfolio Image">
-        </div>
-        <div class="Signname">
-            <h1>SOCIAL HANDLES</h1>
-        </div>
-        <div class="Handles-Holder">
-           <div class="Handler" onclick="hreflink(1)"><img class="img1" src="Assets/Logo/facebook.png" alt="FacebookLogo" ><h3>Facebook</h3></div>
-           <div class="Handler" onclick="hreflink(2)"><img class="img2" src="Assets/Logo/Instagram.png" alt="InstagramLogo" ><h3>Instagram</h3></div>
-           <div class="Handler" onclick="hreflink(3)"><img class="img3" src="Assets/Logo/Youtube.png" alt="YoutubeLogo"><h3>Youtube</h3></div>
-        </div>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Global Online Classes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Css/style.css">
+</head>
+<body>
 
-    <!-- footer  -->
-    <footer class="footer">
-       <div class="footer-content">
-       <p>&copy; 2025 Globle Classes. All rights reserved.</p>
-       </div>
-    </footer>
+  <!-- Loader -->
 
+  <div class="Enterypoint" id="Enterypoint">
+   
+    <h2>Welcome</h2>
 
-    <script src="Js/socialhandle.js"></script>
+    <div class="spinner">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
     </div> 
-    </body>
+    <img src="Assets/Login.png" alt="Loading">
+  </div>
+
+  <!-- Navbar -->
+
+  <div class="Nav-Bar">
+    <img src="Assets/Logo/Logo.jpg" alt="Logo">
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="#temp">Temp</a>
+    </div>
+    <div class="hamburger">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </div>
+  </div>
+
+
+  <!-- Main -->
+  <main>
+
+    <section id="home" class="container">
+      <div class="image-frame">
+        <div class="slideshow-container" id="slider">
+          <img src="Assets/PTimg.png" alt="Slide2">
+          <img src="Assets/Template.jpg" alt="Slide3">
+        </div>
+      </div>
+      <div class="dots" id="dots"></div>
+      <h1>Social Handles</h1>
+    </section>
+
+
+
+
+    <section class="social-links">
+      <a onclick="hreflink(1)">
+        <img src="Assets/Logo/facebook.png" alt="Facebook">
+        <h3>Facebook</h3>
+      </a>
+      <a onclick="hreflink(2)">
+        <img src="Assets/Logo/Instagram.png" alt="Instagram">
+        <h3>Instagram</h3>
+      </a>
+      <a onclick="hreflink(3)">
+        <img src="Assets/Logo/Youtube.png" alt="YouTube">
+        <h3>YouTube</h3>
+      </a>
+    </section>
+
+
+  </main>
+
+
+
+  <footer>
+    <p>© 2025 Global Classes. All rights reserved.</p>
+  </footer>
+
+  <script src="Js/socialhandle.js"></script>
+</body>
 </html>
