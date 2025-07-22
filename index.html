@@ -14,9 +14,7 @@
   <!-- Loader -->
 
   <div class="Enterypoint" id="Enterypoint">
-   
     <h2>Welcome</h2>
-
     <div class="spinner">
       <div class="dot"></div>
       <div class="dot"></div>
@@ -29,18 +27,32 @@
 
   <div class="Nav-Bar">
     <img src="Assets/Logo/Logo.jpg" alt="Logo">
+    <p>Global Classes</p>
     <div class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
+      <a onclick="window.location.reload()">Home</a>
+      <a href="Pages/About.html">About</a>
       <a href="#contact">Contact</a>
-      <a href="#temp">Temp</a>
+      <a href="#temp">Download</a>
     </div>
-    <div class="hamburger">
+    <div class="hamburger" onclick="mobmenu(1)">
       <div class="hamburger-line"></div>
       <div class="hamburger-line"></div>
       <div class="hamburger-line"></div>
     </div>
   </div>
+
+  <div class="Mobile-menu" id="mobmenu">
+    <button onclick="BCE(0)"  id="0" >x</button>
+    <img src="Assets/Logo/Logo.jpg">
+
+    <div onclick="BCE(1)" id="1" class="links-mob ">Home</div>
+    <div onclick="BCE(2)" id="2" class="links-mob ">About</div>
+    <div onclick="BCE(3)" id="3" class="links-mob ">Contact</div>
+    <div onclick="BCE(4)" id="4" class="links-mob ">Download</div>
+
+  </div>
+
+
 
 
   <!-- Main -->
@@ -49,17 +61,30 @@
     <section id="home" class="container">
       <div class="image-frame">
         <div class="slideshow-container" id="slider">
-          <img src="Assets/PTimg.png" alt="Slide2">
           <img src="Assets/Template.jpg" alt="Slide3">
+          <img src="Assets/PTimg.png" alt="Slide2">
         </div>
       </div>
       <div class="dots" id="dots"></div>
+      </section>
+
+   <section>
+  <div class="notice">
+    <h1>NOTICE</h1>
+    <div class="noticelicon">
+      <li>Online Classes on YouTube</li>
+      <li>PDF Materials Available</li>
+      <li>Handwritten Notes Provided</li>
+      <li>Wi-Fi Facility</li>
+      <li>Library Access</li>
+      <li>Available in Both Hindi & English Medium</li>
+    </div>
+  </div>
+</section>
+
+      <section>
       <h1>Social Handles</h1>
-    </section>
-
-
-
-
+      </section>
     <section class="social-links">
       <a onclick="hreflink(1)">
         <img src="Assets/Logo/facebook.png" alt="Facebook">
@@ -74,16 +99,17 @@
         <h3>YouTube</h3>
       </a>
     </section>
-
-
   </main>
-
 
 
   <footer>
     <p>© 2025 Global Classes. All rights reserved.</p>
   </footer>
 
+
   <script src="Js/socialhandle.js"></script>
+
+
+
 </body>
 </html>
