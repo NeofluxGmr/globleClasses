@@ -44,3 +44,40 @@
       ];
       if (links[no - 1]) location.href = links[no - 1];
     }
+
+
+
+    function BCE(no) {
+    const clicked = document.getElementById(no);
+
+    if (no == 0) {
+        mobmenu(0);
+    }
+    else if (no == 1){
+            window.location.reload()  
+    } 
+    else if (no == 2){
+       window.location.href = "pages/about.html"
+    }
+
+    // Apply pressed effect
+    clicked.style.boxShadow = "5px 5px 5px rgba(255, 255, 255, 0)";
+    clicked.style.transform = "translateX(5px) translateY(5px)";
+
+    setTimeout(() => {
+        // Revert effect
+        clicked.style.transform = "translateX(0px) translateY(0px)";
+        clicked.style.boxShadow = "5px 5px 5px rgba(0, 0, 0, 0.829)";
+    }, 300);
+}
+
+function mobmenu(callby) {
+    const menu = document.getElementById("mobmenu");
+
+    if (callby == 0) {
+        menu.style.left = "-500px";
+    } else if (callby == 1) {
+        menu.style.left = "0px";
+    }
+}
+
