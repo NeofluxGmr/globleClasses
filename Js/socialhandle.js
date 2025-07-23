@@ -57,12 +57,14 @@
             window.location.reload()  
     } 
     else if (no == 2){
-       window.location.href = "pages/About.html"
+       window.location.href = "Pages/About.html"
     }
       else if (no == 3){
-       window.location.href = "pages/contact.html"
+       window.location.href = "Pages/contact.html"
     }
-
+     else if (no == 4){
+       window.location.href = "Pages/login.html"
+    }
     // Apply pressed effect
     clicked.style.boxShadow = "5px 5px 5px rgba(255, 255, 255, 0)";
     clicked.style.transform = "translateX(5px) translateY(5px)";
