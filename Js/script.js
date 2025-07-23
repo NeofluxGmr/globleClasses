@@ -1,4 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
 import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
 
 // Firebase configuration
@@ -14,13 +15,8 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 const database = getDatabase(app);
-
-// Admin credentials (hardcoded for simplicity)
-const ADMIN_CREDENTIALS = {
-    email: "admin@example.com",
-    password: "admin123"
-};
 
 // Registration Form Handling
 const registrationForm = document.getElementById('registration-form');
@@ -113,17 +109,19 @@ if (loginForm) {
             setTimeout(() => {
                 emptyError.style.display = 'none';
             }, 3000);
-        } else if (email === ADMIN_CREDENTIALS.email && password === ADMIN_CREDENTIALS.password) {
-            // Successful login
-            sessionStorage.setItem('isAdminLoggedIn', 'true');
-            window.location.href = 'dashboard.html';
         } else {
-            // Invalid credentials
-            invalidError.style.display = 'block';
-            emptyError.style.display = 'none';
-            setTimeout(() => {
-                invalidError.style.display = 'none';
-            }, 3000);
+            // Attempt Firebase Authentication
+            signInWithEmailAndPassword(auth, email, password)
+                .then(() => {
+                    window.location.href = 'dashboard.html';
+                })
+                .catch((error) => {
+                    invalidError.style.display = 'block';
+                    emptyError.style.display = 'none';
+                    setTimeout(() => {
+                        invalidError.style.display = 'none';
+                    }, 3000);
+                });
         }
     });
 }
@@ -131,36 +129,38 @@ if (loginForm) {
 // Dashboard Data Fetching
 const requestList = document.getElementById('request-list');
 if (requestList) {
-    // Check if admin is logged in
-    if (sessionStorage.getItem('isAdminLoggedIn') !== 'true') {
-        window.location.href = 'login.html';
-    } else {
-        const joinRequestsRef = ref(database, 'join_requests');
-        onValue(joinRequestsRef, (snapshot) => {
-            requestList.innerHTML = '';
-            const data = snapshot.val();
-            if (data) {
-                Object.values(data).forEach((request) => {
-                    const card = document.createElement('div');
-                    card.className = 'request-card';
-                    card.innerHTML = `
-                        <p><strong>Name:</strong> ${request.name}</p>
-                        <p><strong>Phone:</strong> ${request.phone}</p>
-                        <p><strong>Email:</strong> ${request.email}</p>
-                        <p><strong>Description:</strong> ${request.description}</p>
-                        <p><strong>Submitted:</strong> ${new Date(request.timestamp).toLocaleString()}</p>
-                    `;
-                    requestList.appendChild(card);
-                });
-            } else {
-                requestList.innerHTML = '<p>No join requests found.</p>';
-            }
-        });
-    }
+    onAuthStateChanged(auth, (user) => {
+        if (!user) {
+            window.location.href = 'login.html';
+        } else {
+            const joinRequestsRef = ref(database, 'join_requests');
+            onValue(joinRequestsRef, (snapshot) => {
+                requestList.innerHTML = '';
+                const data = snapshot.val();
+                if (data) {
+                    Object.values(data).forEach((request) => {
+                        const card = document.createElement('div');
+                        card.className = 'request-card';
+                        card.innerHTML = `
+                            <p><strong>Name:</strong> ${request.name}</p>
+                            <p><strong>Phone:</strong> ${request.phone}</p>
+                            <p><strong>Email:</strong> ${request.email}</p>
+                            <p><strong>Description:</strong> ${request.description}</p>
+                            <p><strong>Submitted:</strong> ${new Date(request.timestamp).toLocaleString()}</p>
+                        `;
+                        requestList.appendChild(card);
+                    });
+                } else {
+                    requestList.innerHTML = '<p>No join requests found.</p>';
+                }
+            });
+        }
+    });
 
     const logoutBtn = document.getElementById('logout-btn');
     logoutBtn.addEventListener('click', () => {
-        sessionStorage.removeItem('isAdminLoggedIn');
-        window.location.href = 'login.html';
+        signOut(auth).then(() => {
+            window.location.href = 'login.html';
+        });
     });
 }
