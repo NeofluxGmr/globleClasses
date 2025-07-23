@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Submissions</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #111;
+      color: white;
+      padding: 2rem;
+    }
+    h2 {
+      text-align: center;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      background: #222;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(255,255,255,0.05);
+    }
+    .logout {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: crimson;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <button class="logout" onclick="logout()">Logout</button>
+  <h2>Registery</h2>
+  <ul id="entriesList"></ul>
+
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
+  <script src="Js/firebase.js"></script>
+  <script>
+    firebase.auth().onAuthStateChanged(user => {
+      if (!user) {
+        window.location.href = "login.html";
+        return;
+      }
+
+      firebase.firestore().collection("contacts").orderBy("time", "desc")
+        .onSnapshot(snapshot => {
+          const list = document.getElementById("entriesList");
+          list.innerHTML = '';
+          snapshot.forEach(doc => {
+            const d = doc.data();
+            list.innerHTML += `<li><b>${d.name}</b> (${d.email})<br>${d.message}</li>`;
+          });
+        });
+    });
+
+    function logout() {
+      firebase.auth().signOut().then(() => window.location.href = "login.html");
+    }
+  </script>
+</body>
+</html>
