@@ -106,7 +106,8 @@
 <body>
     <div class="container">
         <h2>Admin Login</h2>
-        <div class="error" id="login-error">Invalid email or password.</div>
+        <div class="error" id="empty-error">Please fill in both email and password.</div>
+        <div class="error" id="invalid-error">Invalid email or password.</div>
         <form id="login-form">
             <div class="form-group">
                 <label for="email">Email</label>
@@ -119,6 +120,6 @@
             <button type="submit">Login</button>
         </form>
     </div>
-   <script type="module" src="../Js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
