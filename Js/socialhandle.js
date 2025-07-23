@@ -57,10 +57,10 @@
             window.location.reload()  
     } 
     else if (no == 2){
-       window.location.href = "Pages/About.html"
+       window.location.href = "pages/About.html"
     }
       else if (no == 3){
-       window.location.href = "Pages/contact.html"
+       window.location.href = "pages/contact.html"
     }
 
     // Apply pressed effect
