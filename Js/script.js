@@ -103,15 +103,26 @@ if (loginForm) {
         e.preventDefault();
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
-        const loginError = document.getElementById('login-error');
+        const emptyError = document.getElementById('empty-error');
+        const invalidError = document.getElementById('invalid-error');
 
-        if (email === ADMIN_CREDENTIALS.email && password === ADMIN_CREDENTIALS.password) {
+        // Check if either field is empty
+        if (!email || !password) {
+            emptyError.style.display = 'block';
+            invalidError.style.display = 'none';
+            setTimeout(() => {
+                emptyError.style.display = 'none';
+            }, 3000);
+        } else if (email === ADMIN_CREDENTIALS.email && password === ADMIN_CREDENTIALS.password) {
+            // Successful login
             sessionStorage.setItem('isAdminLoggedIn', 'true');
             window.location.href = 'dashboard.html';
         } else {
-            loginError.style.display = 'block';
+            // Invalid credentials
+            invalidError.style.display = 'block';
+            emptyError.style.display = 'none';
             setTimeout(() => {
-                loginError.style.display = 'none';
+                invalidError.style.display = 'none';
             }, 3000);
         }
     });
